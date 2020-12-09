@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public string comicToLoad, currentScene;
+    public int hearts = 3;
+    public Vector3 playerSpawnPoint;
 
     private void Awake() {
         MakeSingleton();
