@@ -10,12 +10,13 @@ namespace ECM.Examples
         private Transform _targetTransform;
 
         [SerializeField]
-        private float _distanceToTarget = 15.0f;
+        private float _distanceToTarget;
 
         [SerializeField]
-        private float _followSpeed = 3.0f;
+        private float _followSpeed;
 
         #endregion
+
 
         #region PROPERTIES
 

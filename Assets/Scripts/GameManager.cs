@@ -7,9 +7,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public int phase = 1;
     public string comicToLoad, currentScene;
     public int hearts = 3;
     public Vector3 playerSpawnPoint;
+    public List<string> disabledEnemies;
 
     private void Awake() {
         MakeSingleton();

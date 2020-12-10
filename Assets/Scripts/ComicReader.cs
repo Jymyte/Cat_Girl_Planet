@@ -32,10 +32,15 @@ public class ComicReader : MonoBehaviour
                     RevealNext();
             } else {
                 if (lastPageImageNumber == imagesInPage) {
-                    HidePage();
-                    lastPageImageNumber = 0;
-                    currentPage++;
-                    imagesInPage = GetImagesInPage();
+                    if (currentPage + 1 < pages.Length) { 
+                        HidePage();
+                        lastPageImageNumber = 0;
+                        currentPage++;
+                        imagesInPage = GetImagesInPage();
+                    }
+                    else {
+                        ReturnToGameplay();
+                    }
                 }
             }
         }
@@ -56,5 +61,9 @@ public class ComicReader : MonoBehaviour
 
     private int GetImagesInPage() {
         return pages[currentPage].transform.childCount;
+    }
+
+    private void ReturnToGameplay() {
+        SceneFader.instance.LoadScene("Gameplay");
     }
 }
