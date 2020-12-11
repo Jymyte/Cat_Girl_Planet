@@ -23,7 +23,13 @@ public class GameController : MonoBehaviour
         SetTheTable();
     }
 
+    private void OnDisable() {
+        Player.gotCaught -= PlayerGotCaught;
+        Player.enteredBuilding -= PlayerEnteredBuilding;
+    }
+
     private void SetTheTable() {
+        Debug.Log(GameManager.instance.phase + "  phase");
         DestroyUnwantedObjectsAndEnableRest();
         SpawnPlayer();
     }
@@ -74,13 +80,14 @@ public class GameController : MonoBehaviour
 
     private void PlayerGotCaught(string enemy, Vector3 spawn) {
         GameManager.instance.disabledEnemies.Add(enemy);
+        Debug.Log(GameManager.instance.disabledEnemies + "  Disabled enemies");
         GameManager.instance.playerSpawnPoint = spawn;
         Debug.Log(GameManager.instance.playerSpawnPoint.x);
         GameManager.instance.hearts--;
         Debug.Log(GameManager.instance.hearts);
         
         string temp = FilterForComic(enemy);
-        //PlayComic(temp);
+        PlayComic("Esimerkki");
     }
 
     private string FilterForComic(string name) {
