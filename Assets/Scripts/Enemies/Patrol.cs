@@ -20,8 +20,10 @@ public class Patrol : MonoBehaviour
     void Update()
     {
         if (nextSpot >= moveSpots.Length) nextSpot = 0;
+        
+        transform.LookAt(moveSpots[nextSpot].position, Vector3.up);
 
-        transform.position =  Vector3.MoveTowards(transform.position, moveSpots[nextSpot].position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, moveSpots[nextSpot].position, speed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, moveSpots[nextSpot].position) < 0.1f ) {
             if (waitTime <= 0) {
