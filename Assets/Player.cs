@@ -20,18 +20,9 @@ public class Player : MonoBehaviour
             enteredBuilding(building, spawn);
         }
     }
-    
-    private void OnTriggerEnter2D(Collider2D target) {
-        if(target.tag == "LOS") {
-            PlayerGotCaughtPlayComic(target.transform.parent.name);
-            Debug.Log(target.transform.parent.name + "miltä näyttää");
-        }
-    }
-
     private void OnTriggerEnter(Collider target) {
         if(target.tag == "LOS") {
             PlayerGotCaughtPlayComic(target.transform.root.name);
-            Debug.Log(target.transform.root.name + "miltä näyttää");
         }
         if(target.tag == "Enemy") {
             PlayerGotCaughtPlayComic(target.name);

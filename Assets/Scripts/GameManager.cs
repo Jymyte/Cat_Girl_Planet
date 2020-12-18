@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
         currentScene = SceneManager.GetActiveScene().name;
     }
 
+    public void GameOver() {
+        Destroy(gameObject);
+    }
+
     private void MakeSingleton() {
         if (instance != null) {
             Destroy(gameObject);

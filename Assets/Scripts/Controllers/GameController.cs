@@ -29,6 +29,10 @@ public class GameController : MonoBehaviour
     }
 
     private void SetTheTable() {
+        if (GameManager.instance.hearts <= 0) {
+            GameOver();
+        }
+
         Debug.Log(GameManager.instance.phase + "  phase");
         DestroyUnwantedObjectsAndEnableRest();
         SpawnPlayer();
@@ -72,6 +76,8 @@ public class GameController : MonoBehaviour
     }
 
     private void PlayerEnteredBuilding(string building, Vector3 spawn) {
+        Player.gotCaught -= PlayerGotCaught;
+        Player.enteredBuilding -= PlayerEnteredBuilding;
         GameManager.instance.phase++;
         GameManager.instance.playerSpawnPoint = spawn;
         string temp = FilterForComic(building);
@@ -79,12 +85,12 @@ public class GameController : MonoBehaviour
     }
 
     private void PlayerGotCaught(string enemy, Vector3 spawn) {
-        GameManager.instance.disabledEnemies.Add(enemy);
-        Debug.Log(GameManager.instance.disabledEnemies + "  Disabled enemies");
+        Player.gotCaught -= PlayerGotCaught;
+        Player.enteredBuilding -= PlayerEnteredBuilding;
+        GameManager.instance.disabledEnemies.Add(enemy);Debug.Log(GameManager.instance.disabledEnemies + "  Disabled enemies");
         GameManager.instance.playerSpawnPoint = spawn;
-        Debug.Log(GameManager.instance.playerSpawnPoint.x);
         GameManager.instance.hearts--;
-        Debug.Log(GameManager.instance.hearts);
+        Debug.Log(GameManager.instance.hearts + "HEEAAAARTS");
         
         string temp = FilterForComic(enemy);
         PlayComic("Esimerkki");
@@ -98,6 +104,11 @@ public class GameController : MonoBehaviour
         }
         
         return null;
+    }
+
+    private void GameOver() {
+        GameManager.instance.GameOver();
+        SceneFader.instance.LoadScene("Gameplay");
     }
 
     public void PlayComic(string comicName) {
