@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
     private GameObject player;
     [SerializeField]
     private string[] comics;
+    [SerializeField]
+    private GameObject[] heartsOnUI;
 
     private void Awake() {
         MakeInstance();
@@ -32,6 +34,7 @@ public class GameController : MonoBehaviour
         if (GameManager.instance.hearts <= 0) {
             GameOver();
         }
+        ShowHearts();
 
         Debug.Log(GameManager.instance.phase + "  phase");
         DestroyUnwantedObjectsAndEnableRest();
@@ -109,6 +112,12 @@ public class GameController : MonoBehaviour
     private void GameOver() {
         GameManager.instance.GameOver();
         SceneFader.instance.LoadScene("Gameplay");
+    }
+
+    private void ShowHearts() {
+        for (int i = 0; i < GameManager.instance.hearts; i++) {
+            heartsOnUI[i].SetActive(true);
+        }
     }
 
     public void PlayComic(string comicName) {
