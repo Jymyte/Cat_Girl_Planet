@@ -4,47 +4,16 @@ using UnityEngine;
 
 public class Scan : MonoBehaviour
 {
-    [SerializeField]
-    private Vector3 turnAngle, startingAngle, targetAngle, speed, currentAngle;
+    public float speed = 2f;
+    [Tooltip("Half of total angle, ie value of 90 will cover 180")]
+    public float maxRotation = 90f;
+    [Tooltip("0 = up, 90 = right etc")]
+    public float startRotation = 0;
 
-    [SerializeField]
-    private float turnTime, startWaitTime;
-    private float waitTime;
-    
-    private void Start() {
-        waitTime = startWaitTime;
-        speed = turnAngle / turnTime;
-        startingAngle = transform.position;
-        targetAngle.y = startingAngle.y + turnAngle.y;
-    }
+    void Update()
+    {
+        float y = startRotation + maxRotation * Mathf.Sin(Time.time * speed);
 
-    private void Update() {
-        rotateTowards();
-
-        if ((transform.rotation.eulerAngles.y >= targetAngle.y && targetAngle.y > startingAngle.y) || (transform.rotation.eulerAngles.y <= startingAngle.y)) {
-            if (waitTime <= 0) {
-                changeTargetAngle();
-            } else {
-                waitTime -= Time.deltaTime;
-            }
-        }
-    }
-
-    private void changeTargetAngle() {
-        if (targetAngle == startingAngle) {
-            targetAngle.y = startingAngle.y + turnAngle.y;
-        } else {
-            targetAngle = startingAngle;
-        }
-    }
-
-    private void rotateTowards() {
-        if (targetAngle.y > startingAngle.y) {
-            currentAngle.y += Time.deltaTime * speed.y;
-        } else {
-            currentAngle.y -= Time.deltaTime * speed.y;
-        }
-
-        gameObject.transform.eulerAngles = currentAngle;
+        transform.rotation = Quaternion.Euler(0f, y, 0f);
     }
 }
