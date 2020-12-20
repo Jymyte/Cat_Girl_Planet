@@ -4,47 +4,62 @@ using UnityEngine;
 
 public class Scan : MonoBehaviour
 {
-    [SerializeField]
-    private Vector3 turnAngle, startingAngle, targetAngle, speed, currentAngle;
+    public float speed = 2f;
+    [Tooltip("Half of total angle, ie value of 90 will cover 180")]
+    public float maxRotation = 90f;
+    [Tooltip("0 = up, 90 = right etc")]
+    public float startRotation = 0;
+    public float waitTime = 1;
+    public bool wait = false;
 
-    [SerializeField]
-    private float turnTime, startWaitTime;
-    private float waitTime;
-    
-    private void Start() {
-        waitTime = startWaitTime;
-        speed = turnAngle / turnTime;
-        startingAngle = transform.position;
-        targetAngle.y = startingAngle.y + turnAngle.y;
+    float prevY;
+
+    float ourTime = 0;
+    bool clockwise;
+
+    void Update()
+    {
+        if (wait)
+            return;
+
+        float y = startRotation + maxRotation * Mathf.Sin(ourTime * speed);
+
+        transform.rotation = Quaternion.Euler(0f, y, 0f);
+
+        ourTime += Time.deltaTime;
+
+        CheckWait(y);
+
+        prevY = y;
     }
 
-    private void Update() {
-        rotateTowards();
-
-        if ((transform.rotation.eulerAngles.y >= targetAngle.y && targetAngle.y > startingAngle.y) || (transform.rotation.eulerAngles.y <= startingAngle.y)) {
-            if (waitTime <= 0) {
-                changeTargetAngle();
-            } else {
-                waitTime -= Time.deltaTime;
-            }
+    private void CheckWait(float y)
+    {
+        if (prevY > y)
+        {
+            if (clockwise == true)
+                BeginWait();
+            else
+                clockwise = false;
+        }
+        else
+        {
+            if (clockwise == false)
+                BeginWait();
+            else
+                clockwise = true;
         }
     }
 
-    private void changeTargetAngle() {
-        if (targetAngle == startingAngle) {
-            targetAngle.y = startingAngle.y + turnAngle.y;
-        } else {
-            targetAngle = startingAngle;
-        }
+    private void BeginWait()
+    {
+        wait = true;
+        clockwise = !clockwise;
+        Invoke(nameof(OnTimerElapse), waitTime);
     }
 
-    private void rotateTowards() {
-        if (targetAngle.y > startingAngle.y) {
-            currentAngle.y += Time.deltaTime * speed.y;
-        } else {
-            currentAngle.y -= Time.deltaTime * speed.y;
-        }
-
-        gameObject.transform.eulerAngles = currentAngle;
+    void OnTimerElapse()
+    {
+        wait = false;
     }
 }
