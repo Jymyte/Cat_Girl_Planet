@@ -120,10 +120,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void MusicOnOff () {
-
-    }
-
     public void PlayComic(string comicName) {
         GameManager.instance.comicToLoad = comicName;
         SceneFader.instance.LoadScene("Comic");
