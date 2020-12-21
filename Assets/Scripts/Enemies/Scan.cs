@@ -6,9 +6,9 @@ public class Scan : MonoBehaviour
 {
     public float speed = 2f;
     [Tooltip("Half of total angle, ie value of 90 will cover 180")]
-    public float maxRotation = 90f;
+    public float maxRotation;
     [Tooltip("0 = up, 90 = right etc")]
-    public float startRotation = 0;
+    public float startRotation;
     public float waitTime = 1;
     public bool wait = false;
 
@@ -16,6 +16,10 @@ public class Scan : MonoBehaviour
 
     float ourTime = 0;
     bool clockwise;
+
+    private void Awake() {
+        startRotation = gameObject.transform.rotation.y;
+    }
 
     void Update()
     {
