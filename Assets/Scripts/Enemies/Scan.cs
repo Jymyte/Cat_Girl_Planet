@@ -17,11 +17,6 @@ public class Scan : MonoBehaviour
     float ourTime = 0;
     bool clockwise;
 
-    private void Start() {
-        Debug.Log("ROTATION Y" + gameObject.transform.rotation.y);
-        //startRotation = gameObject.transform.rotation.y;    
-    }
-
     void Update()
     {
         if (wait)
