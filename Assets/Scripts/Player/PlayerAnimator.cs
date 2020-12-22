@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    public bool moving = false;
+    private Animator anim;
+    private Rigidbody player;
 
+    private void Awake() {
+        anim = GetComponent<Animator> ();
+        player = gameObject.transform.root.GetComponent<Rigidbody>();
+        Debug.Log(player + "    TÄSÄ PLAYER");
+    }
     void Update()
     {
-        if (Input.GetKeyDown("space")) {
-            moving = true;
+        float velX = Mathf.Abs(player.velocity.x);
+        float velY = Mathf.Abs(player.velocity.y);
+
+        if (velX > 0 || velY > 0) {
+            anim.SetBool("moving", true);
         } else {
-            moving = false;
+            anim.SetBool("moving", false);
         }    
     }
 }
