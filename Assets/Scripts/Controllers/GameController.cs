@@ -64,9 +64,6 @@ public class GameController : MonoBehaviour
     private void SpawnPlayer() {
         Vector3 temp = GameManager.instance.playerSpawnPoint;
         player.transform.position = temp;
-        /* temp.y += ECM.Examples.CameraFollow.instance.distanceToTarget;
-        mainCamera.transform.position = temp; */
-        /* mainCamera.transform.position = new Vector3(temp.x, temp.y + ECM.Examples.CameraFollow.instance.distanceToTarget, temp.z); */
     }
 
     private bool CheckIfDisabled (string objectToCheck) {
@@ -96,7 +93,8 @@ public class GameController : MonoBehaviour
         Debug.Log(GameManager.instance.hearts + "HEEAAAARTS");
         
         string temp = FilterForComic(enemy);
-        PlayComic("Esimerkki");
+        Debug.Log("täsä temp" + temp);
+        PlayComic(temp);
     }
 
     private string FilterForComic(string name) {
@@ -105,7 +103,6 @@ public class GameController : MonoBehaviour
                 return comics[i];
             }
         }
-        
         return null;
     }
 

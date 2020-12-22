@@ -389,7 +389,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allComics:
+  - {fileID: 3016641702603819707, guid: 56193df843901ff4baab7a40a67a92f4, type: 3}
+  - {fileID: 3016641702603819707, guid: bfaa52f9c7e5f074f801ab1fe6f33c0a, type: 3}
   - {fileID: 3016641702603819707, guid: 57d3a32654bc5df4ab26e1786b2444d1, type: 3}
+  - {fileID: 3016641702603819707, guid: 9eb1ca62573b0ae4c8f241cf81f18195, type: 3}
+  - {fileID: 3016641702603819707, guid: 1ea0d1547c710c2428e0c0c87b43aa77, type: 3}
+  - {fileID: 3016641702603819707, guid: 5d95e4de7ab78874b980893181de46a9, type: 3}
 --- !u!4 &1247376822
 Transform:
   m_ObjectHideFlags: 0
