@@ -36,9 +36,10 @@ public class GameController : MonoBehaviour
         }
         ShowHearts();
 
-        Debug.Log(GameManager.instance.phase + "  phase");
         DestroyUnwantedObjectsAndEnableRest();
         SpawnPlayer();
+
+        if (MusicController.instance.audioSource.clip.name != "Gameplay") MusicController.instance.PlayTrack("Gameplay");
     }
 
     private void DestroyUnwantedObjectsAndEnableRest() {
@@ -47,7 +48,6 @@ public class GameController : MonoBehaviour
                 if (CheckIfDisabled(allObjects[i].name) == false && allObjects[i].name.Contains("1st")) {
                     allObjects[i].SetActive(true);
                 } else {
-                    Debug.Log(allObjects[i].name.Contains("1st") + "   no mitä sanoo   " + allObjects[i].name);
                     allObjects[i].SetActive(false);
                 }
             }
@@ -68,10 +68,8 @@ public class GameController : MonoBehaviour
 
     private bool CheckIfDisabled (string objectToCheck) {
         if (GameManager.instance.disabledEnemies.Contains(objectToCheck)) {
-            Debug.Log("true");
             return true;
         }
-        Debug.Log("false");
         return false;
     }
 
@@ -90,10 +88,8 @@ public class GameController : MonoBehaviour
         GameManager.instance.disabledEnemies.Add(enemy);Debug.Log(GameManager.instance.disabledEnemies + "  Disabled enemies");
         GameManager.instance.playerSpawnPoint = spawn;
         GameManager.instance.hearts--;
-        Debug.Log(GameManager.instance.hearts + "HEEAAAARTS");
         
         string temp = FilterForComic(enemy);
-        Debug.Log("täsä temp" + temp);
         PlayComic(temp);
     }
 
@@ -120,6 +116,14 @@ public class GameController : MonoBehaviour
     public void PlayComic(string comicName) {
         GameManager.instance.comicToLoad = comicName;
         SceneFader.instance.LoadScene("Comic");
+    }
+
+    public void MusicOnOff () {
+         if (MusicController.instance.audioSource.isPlaying == true) {
+            MusicController.instance.PlayMusic(false);
+        } else {
+            MusicController.instance.PlayMusic(true);
+        }
     }
 
     private void MakeInstance() {

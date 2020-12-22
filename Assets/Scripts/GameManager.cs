@@ -21,9 +21,6 @@ public class GameManager : MonoBehaviour
     public void GameOver() {
         Destroy(gameObject);
     }
-    public void MusicOnOff () {
-
-    }
 
     private void MakeSingleton() {
         if (instance != null) {

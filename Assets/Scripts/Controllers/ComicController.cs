@@ -12,6 +12,9 @@ public class ComicController : MonoBehaviour
     void Start()
     {
         comicToLoadName = GameManager.instance.comicToLoad;
+
+        MusicController.instance.PlayTrack(comicToLoadName);
+
         for(int i = 0; i < allComics.Length; i++) {
             if (allComics[i].name == comicToLoadName) {
                 comicToLoad = allComics[i];

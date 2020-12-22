@@ -8,4 +8,12 @@ public class MenuController : MonoBehaviour
       GameManager.instance.comicToLoad = "Intro";
       SceneFader.instance.LoadScene("Comic");
     }
+
+    public void MusicOnOff () {
+         if (MusicController.instance.audioSource.isPlaying == true) {
+            MusicController.instance.PlayMusic(false);
+        } else {
+            MusicController.instance.PlayMusic(true);
+        }
+    }
 }
