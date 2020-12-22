@@ -734,7 +734,7 @@ GameObject:
   - component: {fileID: 451054123}
   - component: {fileID: 451054122}
   m_Layer: 0
-  m_Name: Cube (42)
+  m_Name: NightClubWall(10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -990,7 +990,7 @@ GameObject:
   - component: {fileID: 482540244}
   - component: {fileID: 482540243}
   m_Layer: 0
-  m_Name: BarWall(7)
+  m_Name: NightClubWall(7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1325,7 +1325,7 @@ GameObject:
   - component: {fileID: 551244620}
   - component: {fileID: 551244619}
   m_Layer: 0
-  m_Name: BarWall(9)
+  m_Name: NightClubWall(9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4180,7 +4180,7 @@ GameObject:
   - component: {fileID: 951858398}
   - component: {fileID: 951858397}
   m_Layer: 0
-  m_Name: BarWall(3)
+  m_Name: NightClubWall(3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4370,7 +4370,7 @@ GameObject:
   - component: {fileID: 958296563}
   - component: {fileID: 958296562}
   m_Layer: 0
-  m_Name: BarWall(8)
+  m_Name: NightClubWall(8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18252,7 +18252,7 @@ GameObject:
   - component: {fileID: 1211428988}
   - component: {fileID: 1211428987}
   m_Layer: 0
-  m_Name: BarWall(4)
+  m_Name: NightClubWall(4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18661,7 +18661,7 @@ GameObject:
   - component: {fileID: 1320840278}
   - component: {fileID: 1320840277}
   m_Layer: 0
-  m_Name: BarWall
+  m_Name: NightClubWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19182,7 +19182,7 @@ GameObject:
   - component: {fileID: 1506627893}
   - component: {fileID: 1506627892}
   m_Layer: 0
-  m_Name: BarWall(5)
+  m_Name: NightClubWall(5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19863,7 +19863,7 @@ GameObject:
   - component: {fileID: 1698098766}
   - component: {fileID: 1698098765}
   m_Layer: 0
-  m_Name: BarWall(1)
+  m_Name: NightClubWall(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20479,7 +20479,7 @@ GameObject:
   - component: {fileID: 1793745753}
   - component: {fileID: 1793745752}
   m_Layer: 0
-  m_Name: BarWall(2)
+  m_Name: NightClubWall(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21668,7 +21668,7 @@ GameObject:
   - component: {fileID: 2036495866}
   - component: {fileID: 2036495865}
   m_Layer: 0
-  m_Name: BarWall(6)
+  m_Name: NightClubWall(6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
