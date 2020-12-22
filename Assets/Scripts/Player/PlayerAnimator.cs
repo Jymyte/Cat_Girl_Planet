@@ -5,19 +5,19 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour
 {
     private Animator anim;
-    private Rigidbody player;
+    private Rigidbody body;
 
     private void Awake() {
         anim = GetComponent<Animator> ();
-        player = gameObject.transform.root.GetComponent<Rigidbody>();
-        Debug.Log(player + "    TÄSÄ PLAYER");
+        body = gameObject.transform.root.GetComponent<Rigidbody>();
     }
     void Update()
     {
-        float velX = Mathf.Abs(player.velocity.x);
-        float velY = Mathf.Abs(player.velocity.y);
+        float velX = Mathf.Abs(body.velocity.x);
+        float velY = Mathf.Abs(body.velocity.y);
+        float velZ = Mathf.Abs(body.velocity.z);
 
-        if (velX > 0 || velY > 0) {
+        if (velX > 0 || velY > 0 || velZ > 0) {
             anim.SetBool("moving", true);
         } else {
             anim.SetBool("moving", false);

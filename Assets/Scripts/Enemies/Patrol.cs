@@ -11,6 +11,14 @@ public class Patrol : MonoBehaviour
     public Transform[] moveSpots;
     private int nextSpot;
 
+    private Animator anim;
+    private Rigidbody body;
+
+    private void Awake() {
+        anim = gameObject.transform.GetChild(0).transform.GetComponent<Animator>();
+        Debug.Log("here be liizerd anim   " + anim);
+    }
+
     void Start()
     {
         waitTime = startWaitTime;
@@ -29,9 +37,11 @@ public class Patrol : MonoBehaviour
             if (waitTime <= 0) {
                 nextSpot++;
                 waitTime = startWaitTime;
+                anim.SetBool("isMoving", true);
             } else {
                 waitTime -= Time.deltaTime;
+                anim.SetBool("isMoving", false);
             }
-        }
+        }    
     }
 }

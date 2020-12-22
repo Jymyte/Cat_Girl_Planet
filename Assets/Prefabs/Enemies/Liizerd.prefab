@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4094038296854477743}
   - component: {fileID: 4094038296854477742}
+  - component: {fileID: 6156675723835501986}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_LocalScale: {x: 0.26137, y: 0.26137, z: 0.26137}
   m_Children: []
   m_Father: {fileID: 4094038297528661837}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &4094038296854477742
 SpriteRenderer:
@@ -82,6 +83,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6156675723835501986
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094038296854477740}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25cbdf1046ca34646815c841db2a3eb2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4094038297528661832
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +113,7 @@ GameObject:
   - component: {fileID: 4094038297528661837}
   - component: {fileID: 4094038297528661836}
   - component: {fileID: 4094038297528661835}
+  - component: {fileID: 4498927690990169410}
   m_Layer: 0
   m_Name: Liizerd
   m_TagString: Enemy
@@ -111,8 +132,8 @@ Transform:
   m_LocalPosition: {x: -12.76, y: 0.1, z: 10.55}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
-  - {fileID: 4094038297178153349}
   - {fileID: 4094038296854477743}
+  - {fileID: 4094038297178153349}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -141,12 +162,28 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4094038297528661832}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.48232207
   m_Height: 1.3049062
   m_Direction: 2
   m_Center: {x: 0.010504405, y: 0.25, z: -0.04141585}
+--- !u!54 &4498927690990169410
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094038297528661832}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8847312451036857655
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +323,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 64fa6a9e2d2e9c043a858a664a9ebea5, type: 3}
     - target: {fileID: 699286345916706391, guid: 3a203b9ac723fb54e88bbce09fd3dee4, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 699286345916706391, guid: 3a203b9ac723fb54e88bbce09fd3dee4, type: 3}
       propertyPath: m_LocalScale.x
