@@ -22,8 +22,6 @@ public class ComicReader : MonoBehaviour
         Debug.Log(imagesInPage + "IMAGES IN PAGE");
         RevealNext();
         bool test = lastPageImageNumber < imagesInPage;
-        /* Debug.Log( lastPageImageNumber + "number");
-        Debug.Log(test + " bool"); */
     }
 
     private void Update() {
@@ -56,7 +54,6 @@ public class ComicReader : MonoBehaviour
         images[lastTotalImageNumber++].SetActive(true);
         lastPageImageNumber++;
         listening = true;
-        Debug.Log(lastPageImageNumber);
     }
 
     private void HidePage() {

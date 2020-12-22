@@ -16,7 +16,6 @@ public class Patrol : MonoBehaviour
 
     private void Awake() {
         anim = gameObject.transform.GetChild(0).transform.GetComponent<Animator>();
-        Debug.Log("here be liizerd anim   " + anim);
     }
 
     void Start()
