@@ -39,7 +39,11 @@ public class ComicReader : MonoBehaviour
                         imagesInPage = GetImagesInPage();
                     }
                     else {
-                        ReturnToGameplay();
+                        if (GameManager.instance.phase == 3) {
+                            GameFinished();
+                        } else {
+                            ReturnToGameplay();
+                        }
                     }
                 }
             }
@@ -65,5 +69,10 @@ public class ComicReader : MonoBehaviour
 
     private void ReturnToGameplay() {
         SceneFader.instance.LoadScene("Gameplay");
+    }
+
+   private void GameFinished() {
+        GameManager.instance.GameOver();
+        SceneFader.instance.LoadScene("Menu");
     }
 }

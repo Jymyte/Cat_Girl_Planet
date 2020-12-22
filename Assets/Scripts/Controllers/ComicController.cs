@@ -25,10 +25,4 @@ public class ComicController : MonoBehaviour
         GameObject obj = Instantiate(comicToLoad, new Vector3(0,0,0), new Quaternion(0,0,0,0)) as GameObject;
         obj.transform.SetParent(GameObject.Find("Comic Canvas").transform, false);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
